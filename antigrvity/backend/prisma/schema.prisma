@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 1. 사용자 (Users)
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String    @map("password_hash")
+  name          String
+  pinCode       String?   @map("pin_code") // 로그인용 6자리 간편비밀번호
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  accounts      Account[]
+}
+
+// 2. 계좌 (Accounts)
+model Account {
+  id            String    @id @default(uuid())
+  userId        String    @map("user_id")
+  accountNumber String    @unique @map("account_number")
+  balance       Float     @default(0) // SQLite에서는 Float 사용
+  bankName      String    @map("bank_name") // 토스뱅크, 카카오뱅크 등
+  type          String    @default("CHECKING") // CHECKING(입출금), SAVINGS(적금)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  user          User      @relation(fields: [userId], references: [id])
+  transactions  Transaction[]
+
+  @@index([userId])
+}
+
+// 3. 거래 내역 (Transactions)
+model Transaction {
+  id            String    @id @default(uuid())
+  accountId     String    @map("account_id")
+  type          String    // DEPOSIT(입금), WITHDRAW(출금)
+  amount        Float
+  balanceAfter  Float     @map("balance_after")
+  description   String    // 거래처 또는 적요
+  transactedAt  DateTime  @default(now()) @map("transacted_at")
+  
+  account       Account   @relation(fields: [accountId], references: [id])
+
+  @@index([accountId])
+  @@index([transactedAt])
+}

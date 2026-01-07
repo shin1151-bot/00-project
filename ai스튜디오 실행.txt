@@ -1,0 +1,22 @@
+C:\00 project\gemini-web\k-idol-hub>npm install
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+added 175 packages, and audited 176 packages in 20s
+
+30 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+C:\00 project\gemini-web\k-idol-hub>npm run dev
+
+> k-idol-hub@0.0.0 dev
+> vite
+
+
+  VITE v6.4.1  ready in 359 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.200.163:3000/
+  ➜  press h + enter to show help
+h

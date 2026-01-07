@@ -1,0 +1,77 @@
+
+import { Product, Category } from './types';
+
+export const CATEGORIES: Category[] = [
+  { id: 'fresh', name: '채소/과일', icon: 'fa-apple-whole' },
+  { id: 'meat', name: '정육/계란', icon: 'fa-drumstick-bite' },
+  { id: 'seafood', name: '수산/해산물', icon: 'fa-fish' },
+  { id: 'bakery', name: '베이커리/치즈', icon: 'fa-bread-slice' },
+  { id: 'meal-kit', name: '밀키트/간편식', icon: 'fa-bowl-food' },
+  { id: 'snack', name: '과자/초콜릿', icon: 'fa-cookie' },
+];
+
+export const PRODUCTS: Product[] = [
+  {
+    id: '1',
+    name: '[제철] 당도선별 샤인머스캣 1.5kg',
+    price: 24900,
+    discountRate: 15,
+    image: 'https://picsum.photos/seed/shine/600/600',
+    category: 'fresh',
+    description: '입안 가득 퍼지는 달콤한 망고향, 아삭한 식감의 프리미엄 샤인머스캣입니다.',
+    tags: ['제철', '당도보장', '선물추천'],
+    isDawnDelivery: true,
+  },
+  {
+    id: '2',
+    name: '1등급 한우 안심 구이용 200g',
+    price: 32000,
+    discountRate: 10,
+    image: 'https://picsum.photos/seed/beef/600/600',
+    category: 'meat',
+    description: '입에서 살살 녹는 부드러운 육질의 1등급 한우 안심입니다.',
+    tags: ['한우', '구이용', '냉장'],
+    isDawnDelivery: true,
+  },
+  {
+    id: '3',
+    name: '완도 전복 500g (특대)',
+    price: 18900,
+    image: 'https://picsum.photos/seed/seafood/600/600',
+    category: 'seafood',
+    description: '청정 완도 바다의 영양을 듬뿍 머금은 싱싱한 활전복입니다.',
+    tags: ['싱싱', '보양식', '당일발송'],
+    isDawnDelivery: true,
+  },
+  {
+    id: '4',
+    name: '프랑스 고메버터 크로와상 (냉동)',
+    price: 8500,
+    discountRate: 20,
+    image: 'https://picsum.photos/seed/bread/600/600',
+    category: 'bakery',
+    description: '프랑스산 최고급 버터로 층층이 결을 낸 고소한 크로와상입니다.',
+    tags: ['홈베이킹', '간식', '인기'],
+    isDawnDelivery: false,
+  },
+  {
+    id: '5',
+    name: '우삼겹 순두부찌개 밀키트',
+    price: 12900,
+    image: 'https://picsum.photos/seed/mealkit/600/600',
+    category: 'meal-kit',
+    description: '진한 사골 육수에 부드러운 순두부와 우삼겹이 어우러진 맛있는 한 끼.',
+    tags: ['캠핑푸드', '간편조리', '베스트'],
+    isDawnDelivery: true,
+  },
+  {
+    id: '6',
+    name: '유기농 파프리카 2입',
+    price: 4500,
+    image: 'https://picsum.photos/seed/veggie/600/600',
+    category: 'fresh',
+    description: '건강하게 키운 아삭한 식감의 유기농 파프리카입니다.',
+    tags: ['친환경', '신선'],
+    isDawnDelivery: true,
+  },
+];
